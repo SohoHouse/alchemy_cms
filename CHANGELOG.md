@@ -35,6 +35,7 @@ __Notable Changes__
   from current site only.
 * Removes the `Language.get_default` method alias for `Language.default`
 * Translates "Website" into "Webseite" in German locale
+* Move site select into pages and languages module to avoid confusion about curent site (#1067)
 
 __Fixed Bugs__
 
