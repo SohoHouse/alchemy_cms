@@ -34,6 +34,7 @@ __Notable Changes__
 * Removes the default_scope from Language on_site current while ensuring to load languages by code
   from current site only.
 * Removes the `Language.get_default` method alias for `Language.default`
+* Translates "Website" into "Webseite" in German locale
 
 __Fixed Bugs__
 

@@ -177,6 +177,7 @@ de:
     "Confirm new password": "Neues Passwort bestätigen"
     "Copy": "Kopie"
     "Could not load Adobe Flash® Plugin!": "Adobe Flash® Plugin konnte nicht geladen werden!"
+    "Current site": Webseite
     "Currently locked pages": "Momentan bearbeitete Seiten"
     "Default language has to be public": "Die Standardsprache muss veröffentlicht sein."
     "Delete image": "Bild löschen"
@@ -264,9 +265,9 @@ de:
     "Show clipboard": "Zwischenablage anzeigen"
     "Show picture infos": "Bild Informationen anzeigen"
     "Show trash": "Papierkorb anzeigen"
-    "Site successfully created": "Website wurde erfolgreich erstellt."
-    "Site successfully removed": "Website wurde erfolgreich gelöscht."
-    "Site successfully updated": "Website wurde erfolgreich aktualisiert."
+    "Site successfully created": "Webseite wurde erfolgreich erstellt."
+    "Site successfully removed": "Webseite wurde erfolgreich gelöscht."
+    "Site successfully updated": "Webseite wurde erfolgreich aktualisiert."
     "Size": "Größe"
     "Sort pages": "Seiten sortieren"
     "Successfully added content": "%{content} wurde hinzugefügt"
@@ -336,7 +337,7 @@ de:
     country_code_foot_note: "Das Länderkürzel ist nur notwendig, wenn Sie unterschiedliche Länder mit der gleichen Sprache versehen wollen."
     create: "erstellen"
     "Create language": "Eine neue Sprache erstellen"
-    "Create site": "Eine neue Website erstellen"
+    "Create site": "Eine neue Webseite erstellen"
     create_language_tree_heading: "Einen leeren Sprachbaum erstellen"
     create_page: "Eine Unterseite anlegen"
     currently_edited_by: "Wird bearbeitet von"
@@ -434,7 +435,7 @@ de:
       library: "Bibliothek"
       pages: "Seiten"
       tags: "Tags"
-      sites: "Websites"
+      sites: "Webseiten"
     name: "Name"
     names: "Namen"
     navigation_name: "Navigationsname"
@@ -817,8 +818,8 @@ de:
         other: "Seiten"
 
       alchemy/site:
-        one: Website
-        other: Websites
+        one: Webseite
+        other: Webseiten
 
       alchemy/picture:
         one: Bild
