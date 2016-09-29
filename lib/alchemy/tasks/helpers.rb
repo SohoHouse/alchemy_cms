@@ -1,3 +1,5 @@
+require_relative "db_url_parser"
+
 module Alchemy
   module Tasks
     module Helpers
@@ -13,7 +15,13 @@ module Alchemy
         raise "Could not find #{database_config_file}!" if !File.exist?(database_config_file)
         @database_config ||= begin
           config_file = YAML.load(ERB.new(File.read(database_config_file)).result)
-          config_file.fetch(environment)
+          config = config_file.fetch(environment)
+
+          if url = config["url"]
+            config = DbUrlParser.new(url).to_config
+          end
+
+          config
         rescue KeyError
             raise "Database configuration for #{environment} not found!"
         end
@@ -48,16 +56,20 @@ module Alchemy
 
       def postgres_command(cmd = 'psql')
         command = []
+
         if database_config['password']
           command << "PGPASSWORD='#{database_config['password']}'"
         end
+
         command << cmd
+
         if database_config['username']
           command << "--username='#{database_config['username']}'"
         end
         if (host = database_config['host']) && (host != 'localhost')
           command << "--host='#{host}'"
         end
+
         command.join(' ')
       end
 
