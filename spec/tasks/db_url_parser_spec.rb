@@ -1,17 +1,22 @@
 require 'alchemy/tasks/db_url_parser'
 
 describe ::Alchemy::Tasks::DbUrlParser do
-  let(:database) { "some_db_name" }
-  let(:host) { "some_host" }
+  let(:adapter) { "postgres" }
   let(:user) { "SomeUser" }
   let(:password) { "some_password" }
+  let(:database) { "some_db_name" }
+  let(:host) { "some_host" }
   let(:port) { 1234 }
-  let(:url) { "postgres://#{user}:#{password}@#{host}:#{port}/#{database}" }
+  let(:url) { "#{adapter}://#{user}:#{password}@#{host}:#{port}/#{database}" }
 
   let(:subject) { described_class.new(url) }
 
   it "parses the password" do
     expect(subject.password).to eq password
+  end
+
+  it "parses the adapter" do
+    expect(subject.adapter).to eq adapter
   end
 
   it "parses the user" do
@@ -28,6 +33,7 @@ describe ::Alchemy::Tasks::DbUrlParser do
 
   it "generates config" do
     expect(subject.to_config).to eq({
+      adapter: adapter,
       host: host, username: user, password: password, database: database
     })
   end

@@ -16,8 +16,12 @@ module Alchemy
         url.path.gsub(%r{\A/}, "")
       end
 
+      def adapter
+        url.scheme
+      end
+
       def to_config
-        {host: host, username: user, password: password, database: database }
+        {adapter: adapter, host: host, username: user, password: password, database: database }
       end
     end
   end
