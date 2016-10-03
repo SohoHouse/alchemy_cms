@@ -28,7 +28,8 @@ module Alchemy
       end
 
       def to_config
-        {adapter: adapter, host: host, username: user, password: password, database: database }
+        {adapter: adapter, host: host, username: user, password: password, database: database }.
+          with_indifferent_access
       end
     end
   end

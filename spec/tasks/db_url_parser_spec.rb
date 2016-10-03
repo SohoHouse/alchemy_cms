@@ -1,4 +1,5 @@
 require 'alchemy/tasks/db_url_parser'
+require 'active_support/core_ext/hash'
 
 describe ::Alchemy::Tasks::DbUrlParser do
   let(:adapter) { "postgres" }
@@ -53,11 +54,17 @@ describe ::Alchemy::Tasks::DbUrlParser do
     expect(subject.database).to eq database
   end
 
-  it "generates config" do
-    expect(subject.to_config).to eq({
-      adapter: "postgresql",
-      host: host, username: user, password: password, database: database
-    })
+  describe "#to_config" do
+    it "generates config" do
+      expect(subject.to_config).to eq({
+        adapter: "postgresql",
+        host: host, username: user, password: password, database: database
+      }.stringify_keys)
+    end
+
+    it "has config accessible by string keys" do
+      expect(subject.to_config["adapter"]).to eq "postgresql"
+    end
   end
 end
 
