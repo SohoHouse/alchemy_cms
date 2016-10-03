@@ -17,7 +17,14 @@ module Alchemy
       end
 
       def adapter
-        url.scheme
+        case url.scheme.to_s
+        when /postgres/i
+          "postgresql"
+        when /mysql/i
+          "mysql"
+        else
+          raise ArgumentError.new "Invalid DB adapter: #{url.scheme.inspect}"
+        end
       end
 
       def to_config
